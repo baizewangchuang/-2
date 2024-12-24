@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+body {
+    overflow: hidden;
+    touch-action: none;
+}
+
+#gameContainer {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.divider {
+    /* 分界线宽度 */
+    width: 2px;    
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    transition: left 0.3s;
+}
+
+.character {
+    width: auto;
+    height: 50vh;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transition: all 0.3s;
+}
+
+#girl {
+    right: 50%;
+    transform: translateY(-50%) scaleX(1);
+}
+
+#boy {
+    left: 50%;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+.score {
+    position: absolute;
+    top: 20px;
+    font-size: 32px;
+    color: white;
+    z-index: 3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#girlScore {
+    left: 20px;
+}
+
+#boyScore {
+    right: 20px;
+}
+
+/* 添加左右两边的闪烁效果 */
+@keyframes leftPush {
+    0% { background: #4d79ff; }
+    50% { background: #7094ff; }
+    100% { background: #4d79ff; }
+}
+
+@keyframes rightPush {
+    0% { background: #ff4d4d; }
+    50% { background: #ff7070; }
+    100% { background: #ff4d4d; }
+}
+
+/* 添加左右两边的容器 */
+.left-side, .right-side {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    z-index: 0;
+    transition: width 0.3s;
+}
+
+.left-side {
+    left: 0;
+    width: 50%;
+    background: #4d79ff;
+}
+
+.right-side {
+    right: 0;
+    width: 50%;
+    background: #ff4d4d;
+}
